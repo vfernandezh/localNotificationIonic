@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { NotificacionProvider } from '../providers/notificacion/notificacion';
 
+
 @NgModule({
   declarations: [
     MyApp,
@@ -28,7 +29,8 @@ import { NotificacionProvider } from '../providers/notificacion/notificacion';
     SplashScreen,
     LocalNotifications,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    NotificacionProvider
+    NotificacionProvider,
+
   ]
 })
 export class AppModule {}

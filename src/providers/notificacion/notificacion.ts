@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { LocalNotifications } from '@ionic-native/local-notifications';
-import { NavController, AlertController, Platform } from 'ionic-angular';
+import { AlertController, Platform } from 'ionic-angular';
 
 /*
   Generated class for the NotificacionProvider provider.
@@ -11,9 +11,7 @@ import { NavController, AlertController, Platform } from 'ionic-angular';
 @Injectable()
 export class NotificacionProvider {
 
-  private notificacion:LocalNotifications;
-  
-  constructor(public navCtrl: NavController, public alertC: AlertController, private ptl: Platform, private localN: LocalNotifications) {
+  constructor(public alertC: AlertController, private ptl: Platform, private localN: LocalNotifications) {
     this.ptl.ready().then((rdy) => {
 
       this.localN.on('click').subscribe(notification => {
@@ -32,15 +30,15 @@ export class NotificacionProvider {
     });
   }
 
-  private abrirNotificacionSimple(titulo:string, texto:string) {
+  abrirNotificacionSimple(titulo: string, texto: string) {
     var nSimple = {
       id: 1,
       title: titulo,
       text: texto,
       //at: new Date(new Date().getTime() + 5 *1000),
       data: { mydata: 'mi mensaje es este' }
-      .
+
     }
-    this.notificacion.schedule(nSimple);
+    this.localN.schedule(nSimple);
   }
 }
